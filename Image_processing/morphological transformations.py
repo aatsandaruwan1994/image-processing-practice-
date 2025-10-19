@@ -13,7 +13,7 @@ erosion = cv2.erode(mask, kernal, iterations=1)
 opening = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernal)
 closing = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernal)
 mg = cv2.morphologyEx(mask, cv2.MORPH_GRADIENT, kernal)
-th = cv2.morphologyEx(mask, cv2.MORPH_TOPHAT, kernal)
+th = cv2.morphologyEx(mask, cv2.MORPH_TOPHAT, kernal)     #deference between first image and the opening image
 
 titles = ['image', 'mask', 'dilation', 'erosion', 'opening', 'closing', 'mg', 'th']
 images = [img, mask, dilation, erosion, opening, closing, mg, th]
@@ -22,5 +22,6 @@ for i in range(8):
     plt.subplot(2 , 4 , i+1), plt.imshow(images[i], 'gray')
     plt.title(titles[i])
     plt.xticks([]),plt.yticks([])
+
 
 plt.show()
